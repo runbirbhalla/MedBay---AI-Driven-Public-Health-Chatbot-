@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Custom global styles ===== */
+
+/* Smooth scroll everywhere */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #374151; /* gray-700 */
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563; /* gray-600 */
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Typing indicator smooth bounce */
+@keyframes bounce-smooth {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.animate-bounce {
+  animation: bounce-smooth 0.9s infinite;
+}
+
+/* Glassmorphism container effect */
+.chat-glass {
+  background: rgba(17, 24, 39, 0.7); /* bg-gray-900/70 */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(55, 65, 81, 0.6); /* gray-700 */
+  border-radius: 1rem;
+}
+
+/* Smooth fade-in for chat messages */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.message-enter {
+  animation: fadeInUp 0.25s ease-out;
+}
+.mobile-overlay {
+  background: rgba(2,6,23,0.6);
+}
+
+/* Keep the chat glass style already suggested */
+
+/* existing message fade-in */
+
+
+
+.chat-glass {
+  background: rgba(23, 29, 42, 0.75); /* A slightly different dark glass */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes message-enter-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-enter {
+  animation: message-enter-animation 0.4s ease-out forwards;
+}
+.hero-aurora {
+  /* This div will be the container for our glow */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Sits behind the content */
+  overflow: hidden; /* Keeps the glow contained */
+  pointer-events: none; /* Allows clicks to go through it */
+}
+
+.hero-aurora::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background-image: radial-gradient(
+    circle,
+    rgba(74, 222, 128, 0.2) 0%, /* Your theme's green color, with transparency */
+    rgba(13, 17, 23, 0) 65%   /* Fades to transparent */
+  );
+  filter: blur(100px); /* This creates the soft, blurry effect */
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animated-gradient {
+  /* A smoother, darker gradient for a more professional feel */
+  background: linear-gradient(-45deg, #0d1117, #161b22, #0d1117, #21262d);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+/* Second, the upgraded 'chat-glass' style */
+.chat-glass {
+  /* Semi-transparent background color */
+  background: rgba(22, 27, 34, 0.7);
+
+  /* The magic: applies a blur filter to whatever is behind the element */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+
+  /* A subtle border to define the edge of the glass */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
